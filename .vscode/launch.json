@@ -11,13 +11,13 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/Build/",
             "environment": [],
-            "program": "${workspaceFolder}/Build/CrimsonSoldier",
+            "program": "${workspaceFolder}/Build/RedCrosshair",
             "linux": {
                 "externalConsole": false,
             },
             "windows": {
                 "type": "cppvsdbg",
-                "program": "${workspaceFolder}/Build/CrimsonSoldier.exe",
+                "program": "${workspaceFolder}/Build/RedCrosshair.exe",
                 "console": "integratedTerminal",
             }
         }

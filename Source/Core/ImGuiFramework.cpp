@@ -1,5 +1,15 @@
+/**
+ * @file ImGuiFramework.cpp
+ * @author Andor Fülöp <98351517+GamerFandor@users.noreply.github.com>
+ * @brief Implementation of the ImGuiFramework class
+ * @version 1.0.0
+ * @date 2023-12-17
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <cstdlib>
-#include "Application/ImGuiFramework.hpp"
+#include "Core/ImGuiFramework.hpp"
 
 ImGuiFramework::ImGuiFramework()
 {
@@ -31,7 +41,7 @@ ImGuiFramework::ImGuiFramework()
 #endif
 
     // Create window with graphics context
-    window = glfwCreateWindow(1280, 720, "CrimsonSoldier", nullptr, nullptr);
+    window = glfwCreateWindow(1280, 720, "Red Crosshair", nullptr, nullptr);
     if (window == nullptr)
         exit(1);
     glfwMakeContextCurrent(window);
