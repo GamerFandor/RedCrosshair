@@ -29,7 +29,16 @@ void Console::DrawWindow(bool* IsOpen)
         auto LogMessages = Logger::GetLogMessages(ConsoleFilter);
         for (auto text : LogMessages)
         {
-            ImGui::Text("%s", text.c_str());
+            if (text.find("[ + ]") != std::string::npos)
+                ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), "%s", text.c_str());
+            else if (text.find("[ i ]") != std::string::npos)
+                ImGui::TextColored(ImVec4(0.0f, 0.0f, 1.0f, 1.0f), "%s", text.c_str());
+            else if (text.find("[ ! ]") != std::string::npos)
+                ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%s", text.c_str());
+            else if (text.find("[ x ]") != std::string::npos)
+                ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "%s", text.c_str());
+            else
+                ImGui::Text("%s", text.c_str());
         }
         if (ImGui::GetScrollY() >= ImGui::GetScrollMaxY()) ImGui::SetScrollHereY(1.0f);
         ImGui::EndChild();
