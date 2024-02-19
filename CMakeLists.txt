@@ -14,8 +14,8 @@ target_sources(${PROJECT_NAME} PRIVATE
     Vendor/ImGui/imgui_tables.cpp
     Vendor/ImGui/imgui_widgets.cpp
     Vendor/ImGui/imgui.cpp
-    "Vendor/ImGui/backends/imgui_impl_glfw.cpp"
-    "Vendor/ImGui/backends/imgui_impl_opengl3.cpp"    
+    Vendor/ImGui/backends/imgui_impl_glfw.cpp
+    Vendor/ImGui/backends/imgui_impl_opengl3.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
