@@ -10,9 +10,11 @@
  */
 #include <ctime>
 #include <chrono>
+#include <cctype>
 #include <iomanip>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
 #include "Defines.hpp"
 #include "Core/Logger.hpp"
 
@@ -58,7 +60,10 @@ std::vector<std::string> Logger::GetLogMessages(std::string Filter)
 
     for (auto Msg : Logger::LogMessages)
     {
-        if (Filter != "" && Msg.find(Filter) == std::string::npos) continue;
+        std::string MsgLowercase = Msg;
+        std::transform(MsgLowercase.begin(), MsgLowercase.end(), MsgLowercase.begin(), [](unsigned char c){ return std::tolower(c); });
+        std::transform(Filter.begin(), Filter.end(), Filter.begin(), [](unsigned char c){ return std::tolower(c); });
+        if (Filter != "" && MsgLowercase.find(Filter) == std::string::npos) continue;
         FilteredMessages.push_back(Msg);
     }
 
