@@ -10,7 +10,7 @@
  */
 #pragma once
 
-/// The version number of the application
+/// @brief The version number of the application
 #define VERSION "1.0.0"
 
 /**

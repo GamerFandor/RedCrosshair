@@ -9,11 +9,16 @@
  * 
  */
 #include <iostream>
+#include "Core/Logger.hpp"
 #include "Core/Application.hpp"
 
 int main(void)
 {
     Application app;
+    Logger::Log("Success message", LogLevel::Success);
+    Logger::Log("Info message", LogLevel::Info);
+    Logger::Log("Warning message", LogLevel::Warning);
+    Logger::Log("Error message", LogLevel::Error);
     app.Run();
 
     return EXIT_SUCCESS;

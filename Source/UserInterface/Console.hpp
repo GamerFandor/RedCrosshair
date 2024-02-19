@@ -8,21 +8,21 @@
  * @copyright Copyright (c) 2023
  * 
  */
-
-// TODO: Separate the logger and the console window into two different classes
 #pragma once
 
-#include <vector>
 #include <string>
 
 class Console
 {
 public:
+    /**
+     * @brief Draw the console window to the screen
+     * 
+     * @param IsOpen Is the window currently open
+     */
     void DrawWindow(bool* IsOpen);
-    static void Log(const std::string& Message);
-    void ClearConsole();
 
 private:
-    static std::vector<std::string> ConsoleOutputBuffer;
+    /// @brief The filter string to search in the log messages
     std::string ConsoleFilter{""};
 };
