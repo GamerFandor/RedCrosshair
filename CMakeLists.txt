@@ -16,12 +16,18 @@ target_sources(${PROJECT_NAME} PRIVATE
     Vendor/ImGui/imgui.cpp
     Vendor/ImGui/backends/imgui_impl_glfw.cpp
     Vendor/ImGui/backends/imgui_impl_opengl3.cpp
+
+    Vendor/PugiXML/src/pugixml.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     Source/
     Source/**/
+
     Vendor/GLFW/include
+
     Vendor/ImGui
     Vendor/ImGui/backends
+
+    Vendor/PugiXML/src
 )
