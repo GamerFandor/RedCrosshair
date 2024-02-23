@@ -9,6 +9,10 @@ add_executable(${PROJECT_NAME} ${SOURCE})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw opengl32)
 
+if (WIND32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE kernel32.lib user32.lib)
+endif()
+
 target_sources(${PROJECT_NAME} PRIVATE
     Vendor/ImGui/imgui_draw.cpp
     Vendor/ImGui/imgui_tables.cpp
