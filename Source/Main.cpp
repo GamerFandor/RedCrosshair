@@ -11,14 +11,21 @@
 #include <iostream>
 #include "Core/Logger.hpp"
 #include "Core/Application.hpp"
+#include "Core/ConsoleAppManager.hpp"
 
 int main(void)
 {
     Application app;
-    Logger::Log("Success message", LogLevel::Success);
-    Logger::Log("Info message", LogLevel::Info);
-    Logger::Log("Warning message", LogLevel::Warning);
-    Logger::Log("Error message", LogLevel::Error);
+
+    if (IsConsoleAppInstalled(ThirdPartyConsoleApp::nmap))
+        Logger::Log("nmap is installed", LogLevel::Success);
+    else
+        Logger::Log("nmap is not installed", LogLevel::Error);
+    if (IsConsoleAppInstalled(ThirdPartyConsoleApp::Metasploit))
+        Logger::Log("Metasploit is installed", LogLevel::Success);
+    else
+        Logger::Log("Metasploit is not installed", LogLevel::Error);
+        
     app.Run();
 
     return EXIT_SUCCESS;
