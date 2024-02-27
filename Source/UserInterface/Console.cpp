@@ -10,8 +10,10 @@
  */
 #include "imgui.h"
 #include <iostream>
-#include "Windows.h"
 #include "Defines.hpp"
+#ifdef PLATFORM_WINDOWS
+    #include "Windows.h"
+#endif
 #include "Core/Logger.hpp"
 #include "UserInterface/Console.hpp"
 
@@ -49,7 +51,11 @@ void Console::DrawWindow(bool* IsOpen)
         ImGui::Text("Filter:");
         ImGui::SameLine();
         char FilterBuffer[256];
-        strncpy_s(FilterBuffer, ConsoleFilter.c_str(), sizeof(FilterBuffer));
+        #ifdef PLATFORM_WINDOWS
+            strncpy_s(FilterBuffer, ConsoleFilter.c_str(), sizeof(FilterBuffer));
+        #else
+            strncpy(FilterBuffer, ConsoleFilter.c_str(), sizeof(FilterBuffer));
+        #endif
         ImGui::InputText(" ", FilterBuffer, sizeof(FilterBuffer));
         ConsoleFilter = FilterBuffer;
         ImGui::End();

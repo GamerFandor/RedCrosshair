@@ -9,8 +9,10 @@
  * 
  */
 #include <cstdlib>
-#include <Windows.h>
 #include "Defines.hpp"
+#ifdef PLATFORM_WINDOWS
+    #include <Windows.h>
+#endif
 #include "Core/Application.hpp"
 
 void Application::StartUp()
@@ -102,7 +104,7 @@ void Application::Update()
             #endif
 
             #ifdef PLATFORM_LINUX
-                system("xdg-open https://github.com/GamerFandor/RedCrosshair")
+                system("xdg-open https://github.com/GamerFandor/RedCrosshair");
             #endif
 
         }
@@ -114,7 +116,7 @@ void Application::Update()
             #endif
 
             #ifdef PLATFORM_LINUX
-                system("xdg-open https://github.com/GamerFandor/RedCrosshair/wiki/User-Manual#manual")
+                system("xdg-open https://github.com/GamerFandor/RedCrosshair/wiki/User-Manual#manual");
             #endif
 
         }

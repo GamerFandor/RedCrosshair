@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2024
  * 
  */
-#ifdef PLATFORM_LINUX
-    #include <stdio.h>
-#elif PLATFORM_WINDOWS
-#endif
-#include <windows.h>
 #include "Defines.hpp"
+#ifdef PLATFORM_WINDOWS
+    #include <Windows.h>
+#else 
+    #include <stdio.h>
+#endif
 #include "Core/Logger.hpp"
 #include "Core/ConsoleAppManager.hpp"
 

@@ -7,10 +7,12 @@ add_subdirectory(Vendor/GLFW)
 file(GLOB_RECURSE SOURCE "Source/*.cpp" "Source/**/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCE})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE glfw opengl32)
-
 if (WIND32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE glfw opengl32)
     target_link_libraries(${PROJECT_NAME} PRIVATE kernel32.lib user32.lib)
+else()
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(${PROJECT_NAME} PRIVATE glfw OpenGL)
 endif()
 
 target_sources(${PROJECT_NAME} PRIVATE
