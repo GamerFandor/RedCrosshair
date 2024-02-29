@@ -15,11 +15,19 @@
 #endif
 #include "Core/Application.hpp"
 
+/**
+ * @brief Configure the application (mainly ImGui)
+ * 
+ */
 void Application::StartUp()
 {
     // Implementation of Startup goes here
 }
 
+/**
+ * @brief The main loop of the program
+ * 
+ */
 void Application::Update()
 {  
     // Setting up ImGui Dockspaces

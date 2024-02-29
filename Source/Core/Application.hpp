@@ -13,17 +13,44 @@
 #include "Core/ImGuiFramework.hpp"
 #include "UserInterface/Console.hpp"
 
+/**
+ * @brief The main class of the program
+ * 
+ */
 class Application : public ImGuiFramework
 {
 public:
+    /**
+     * @brief Construct a new Application object to pass basic info
+     * 
+     */
     Application() = default;
+
+    /**
+     * @brief Cleanup when the app is closed
+     * 
+     */
     ~Application() = default;
+
+    /**
+     * @brief Configure the application (mainly ImGui)
+     * 
+     */
     virtual void StartUp() final;
+
+    /**
+     * @brief The main loop of the program
+     * 
+     */
     virtual void Update() final;
 
 private:
+    /// @brief Console window visibility
     bool ShowConsole = true;
+
+    /// @brief About window visibility
     bool ShowAbout = false;
 
+    /// @brief Console object
     Console Con;
 };
